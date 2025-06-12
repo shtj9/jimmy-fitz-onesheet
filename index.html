@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jimmy Fitzsimmons - Official One-Sheet</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import - Inter for general text, Roboto Black for band name */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Garage rock background: Radial gradient for depth */
+            background: radial-gradient(circle at 50% 50%, #300000 0%, #610000 70%, #400000 100%);
+            color: #F5EFE6; /* Soft creamy white text */
+            position: relative; /* Needed for ::before positioning */
+            z-index: 0; /* Ensure content is above background */
+            overflow-x: hidden; /* Prevent horizontal scroll due to potential background effects */
+        }
+
+        /* Pseudo-element for subtle grunge/noise overlay */
+        body::before {
+            content: '';
+            position: fixed; /* Covers the whole viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Subtle noise effect using repeating linear gradient for a distressed look */
+            background-image: repeating-linear-gradient(
+                45deg,
+                rgba(0, 0, 0, 0.05) 0%, /* Very light, almost transparent black */
+                rgba(0, 0, 0, 0.05) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            background-size: 4px 4px; /* Size of the repeating pattern for a fine grain */
+            opacity: 0.1; /* Very subtle, just to add texture */
+            pointer-events: none; /* Allows interaction with elements below */
+            z-index: -1; /* Place behind main content */
+        }
+
+        /* Specific styling for the band name for a garage rock feel */
+        .band-name {
+            font-family: 'Roboto', sans-serif; /* Applied new font: Roboto Black */
+            font-weight: 900; /* Use the Black (900) weight of Roboto */
+            font-size: 5rem; /* Even larger font size for impact */
+            letter-spacing: 0.1em; /* Adjusted letter spacing */
+            text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.6); /* Stronger shadow */
+            -webkit-text-stroke: 0px transparent; /* Removed the internal lines/stroke */
+            line-height: 0.9; /* Adjust line height to make it more compact like the image */
+            text-transform: uppercase; /* Ensure it's all uppercase */
+        }
+        /* Style for headings */
+        h2 {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #B22222; /* FireBrick red accent */
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #888888; /* Muted gray underline */
+            border-radius: 9999px;
+        }
+        /* Style for buttons/links */
+        .btn-primary {
+            display: inline-block;
+            background-color: #B22222; /* FireBrick red */
+            color: #F5EFE6; /* Soft creamy white */
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem; /* Rounded corners */
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover {
+            background-color: #8B0000; /* Darker red on hover */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+        /* Style for press quotes */
+        .quote-box {
+            background-color: #222222; /* Very dark charcoal background for contrast */
+            border-left: 5px solid #888888; /* Gray border on the left */
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        .quote-source {
+            text-align: right;
+            font-weight: 700;
+            color: #F5EFE6; /* Soft creamy white */
+            margin-top: 0.5rem;
+        }
+        /* Responsive video container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.5rem; /* Match parent border-radius */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl w-full space-y-12 bg-gray-900 p-8 sm:p-10 rounded-lg shadow-2xl border border-gray-700">
+        <!-- Main content box now uses a darker gray to stand out against the red body background -->
+        <!-- Band Name and Logo -->
+        <div class="text-center">
+            <h1 class="band-name text-F5EFE6 mb-4 sm:text-6xl md:text-7xl text-5xl">JIMMY FITZSIMMONS</h1>
+            <img src="https://placehold.co/800x500/B22222/F5EFE6?text=JIMMY%0AFITZSIMMONS"
+                 onerror="this.onerror=null;this.src='https://placehold.co/800x500/B22222/F5EFE6?text=BAND%20LOGO';"
+                 alt="Jimmy Fitzsimmons Band Logo"
+                 class="mx-auto rounded-lg shadow-xl border-2 border-B22222 w-full max-w-md">
+        </div>
+
+        <!-- About The Band Section -->
+        <section>
+            <h2 class="text-3xl text-center sm:text-left">ABOUT THE BAND</h2>
+            <p class="mt-4 text-lg leading-relaxed text-F5EFE6">
+                Jimmy Fitzsimmons is a Serbian garage rock band hailing from Novi Sad, born in 2024 out of a quest for authentic artistic expression. They blend chaos with killer grooves, broken rhythms, saturated guitars, and spring reverbs, creating a sound that boldly mixes funk, hip-hop, and rock. Their music is wild, loud, and unapologetically fun, designed to make you groove, laugh, and maybe even question your life choices. Welcome to the madness.
+            </p>
+        </section>
+
+        <!-- Latest Release Section -->
+        <section>
+            <h2 class="text-3xl text-center sm:text-left">LATEST RELEASE: "TOO MUCH TOO SOON" (2024)</h2>
+            <p class="mt-4 text-lg leading-relaxed text-F5EFE6">
+                Their debut album, "Too Much Too Soon," is exactly what it sounds like: a glorious mess of raw energy and questionable decision-making. These guys practically trip over their own riffs, the arrangements are delightfully "loose," and yet, somehow, they've stumbled into something incredible. It's fun, it's short, it's stupid (in the best way possible), and it's packed with unforgettable grooves, killer guitar solos, and stories you won't forget. Featuring standout tracks like "Fake Tits," "Bronco Boy," and "This Ain't Fvcking Paris," the album showcases seasoned musicianship beneath its playful exterior. Welcome to the Jimmy Fitz Function!
+            </p>
+        </section>
+
+        <!-- Videos Section -->
+        <section>
+            <h2 class="text-3xl text-center sm:text-left">WATCH & LISTEN</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+                <!-- Video 1 -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/ZyJkKRuyYfE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <!-- Video 2 -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/qqNYAO9pLBo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <!-- Video 3 -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/7CN509msQdE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- On The Press Section -->
+        <section>
+            <h2 class="text-3xl text-center sm:text-left">ON THE PRESS</h2>
+            <div class="space-y-6 mt-4">
+                <div class="quote-box">
+                    <p>"Jimmy Fitzsimmons is an absolute breath of fresh air on the music scene, blending funk, hip-hop, and rock into a sound that is wild, loud, and fun."</p>
+                    <p class="quote-source">— Balkanrock</p>
+                </div>
+                <div class="quote-box">
+                    <p>"Jimmy Fitzsimmons osnovani su 2024. godine s jasnom misijom – stvoriti glazbu koja pokreće, zabavlja, ali i provocira. Njihov izričaj odlikuje autentičnost, distanca od komercijalne formule i stav “sve ili ništa”."</p>
+                    <p class="quote-source">— Poprock</p>
+                </div>
+                <div class="quote-box">
+                    <p>"‘Too Much, Too Soon’ album which, to be clear, also boasts strong and skillfully crafted highlights in tracks like ‘Fake Tits,’ ‘Bronco Boy,’ and ‘This Ain’t Fvcking Paris.’ This strongly supports the idea that Jimmy Fitzsimmons is not a hastily thrown-together bunch of amateurs, but rather a group of seasoned musicians who needed a kind of outlet for playing around with ideas and a solid groove — a similar approach to the one Jack White took on his No Name album last year.”</p>
+                    <p class="quote-source">— Ravno do dna</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect Section -->
+        <section class="text-center">
+            <h2 class="text-3xl">CONNECT WITH JIMMY FITZSIMMONS</h2>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mt-6">
+                <a href="https://www.facebook.com/jimmyfitzsimmonsband/" target="_blank" class="btn-primary">
+                    Facebook
+                </a>
+                <a href="https://www.instagram.com/jimmyfitzband" target="_blank" class="btn-primary">
+                    Instagram
+                </a>
+                <a href="https://jimmyfitzsimmons.bandcamp.com" target="_blank" class="btn-primary">
+                    Bandcamp
+                </a>
+            </div>
+        </section>
+
+        <!-- Booking & Inquiries Section -->
+        <section class="text-center">
+            <h2 class="text-3xl">FOR BOOKING & INQUIRIES</h2>
+            <p class="mt-4 text-lg text-F5EFE6">
+                Email: <a href="mailto:info@jimmyfitzsimmons.com" class="text-B22222 hover:underline">info@jimmyfitzsimmons.com</a><br>
+                Phone: <a href="tel:+1234567890" class="text-B22222 hover:underline">+1 (234) 567-890</a>
+                <span class="block text-sm text-gray-400 mt-2">(Please replace with actual contact info)</span>
+            </p>
+        </section>
+
+    </div>
+</body>
+</html>
