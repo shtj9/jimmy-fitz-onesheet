@@ -46,12 +46,13 @@
         .band-name {
             font-family: 'Roboto', sans-serif; /* Applied new font: Roboto Black */
             font-weight: 900; /* Use the Black (900) weight of Roboto */
-            font-size: 5rem; /* Even larger font size for impact */
             letter-spacing: 0.1em; /* Adjusted letter spacing */
             text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.6); /* Stronger shadow */
             -webkit-text-stroke: 0px transparent; /* Removed the internal lines/stroke */
             line-height: 0.9; /* Adjust line height to make it more compact like the image */
             text-transform: uppercase; /* Ensure it's all uppercase */
+            color: #B22222; /* Changed color to match headings */
+            /* The font-size is now controlled by Tailwind classes directly on the h1 tag */
         }
         /* Style for headings */
         h2 {
@@ -127,7 +128,7 @@
         <!-- Main content box now uses a darker gray to stand out against the red body background -->
         <!-- Band Name and Logo -->
         <div class="text-center">
-            <h1 class="band-name mb-4 sm:text-6xl md:text-7xl text-5xl">JIMMY FITZSIMMONS</h1>
+            <h1 class="band-name mb-4 text-4xl sm:text-6xl md:text-7xl">JIMMY FITZSIMMONS</h1>
             <img src="https://i.imgur.com/CWY92Ht.jpeg"
                  onerror="this.onerror=null;this.src='https://placehold.co/800x500/B22222/F5EFE6?text=BAND%20LOGO';"
                  alt="Jimmy Fitzsimmons Band Logo"
@@ -203,6 +204,7 @@
                 </a>
             </div>
         </section>
+
 
     </div>
 </body>
