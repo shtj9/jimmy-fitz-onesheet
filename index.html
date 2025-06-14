@@ -43,17 +43,12 @@
             z-index: -1; /* Place behind main content */
         }
 
-        /* Specific styling for the band name for a garage rock feel */
-        .band-name {
-            font-family: 'Roboto', sans-serif; /* Applied new font: Roboto Black */
-            font-weight: 900; /* Use the Black (900) weight of Roboto */
-            letter-spacing: 0.1em; /* Adjusted letter spacing */
-            text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.6); /* Stronger shadow */
-            -webkit-text-stroke: 0px transparent; /* Removed the internal lines/stroke */
-            line-height: 0.9; /* Adjust line height to make it more compact like the image */
-            text-transform: uppercase; /* Ensure it's all uppercase */
-            color: #B22222; /* Changed color to match headings */
-            /* The font-size is now controlled by Tailwind classes directly on the h1 tag */
+        .logo-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px;
+            filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.6));
         }
         /* Style for headings */
         h2 {
@@ -157,16 +152,16 @@
 
     <div class="max-w-4xl w-full space-y-12 bg-gray-900 p-8 sm:p-10 rounded-lg shadow-2xl border border-gray-700">
         <!-- Main content box now uses a darker gray to stand out against the red body background -->
+        <img src="https://i.imgur.com/Bzbulbr.png" alt="Jimmy Fitz Logo" class="logo-img">
         <!-- Band Name and Logo -->
         <div class="text-center">
-            <h1 class="band-name mb-4 text-4xl sm:text-6xl md:text-7xl">JIMMY FITZSIMMONS</h1>
             <img src="https://i.imgur.com/CWY92Ht.jpeg"
                  onerror="this.onerror=null;this.src='https://placehold.co/800x500/B22222/F5EFE6?text=BAND%0AFITZSIMMONS';"
                  alt="Jimmy Fitzsimmons Band Logo"
                  class="mx-auto rounded-lg shadow-xl border-2 border-B22222 w-full max-w-md">
             <!-- Download Button -->
             <div class="text-center mt-6">
-                <a href="https://drive.google.com/file/d/1bGmijs4YD9d8ovOAVLzJM_V18kbCvx2s/view" download="jimmy-fitzsimmons-logo.png" class="btn-primary" data-translate-key="download_button">
+                <a href="https://drive.google.com/drive/folders/1y2gfTTyEmbwQNnZFWhverIR3_YJE_lI9?fbclid=IwY2xjawK6xNVleHRuA2FlbQIxMABicmlkETBrMEtvdUkxRlZjRmpxd1dKAR7DiJDHMpEuRqAjMGJO-DDuLGXruw05XWI3oVsa2jq81_om2F5zTJqlq3e4TA_aem_W85MRpp2rsne0CisWFYvMA" download="jimmy-fitzsimmons-logo.png" class="btn-primary" data-translate-key="download_button">
                     Download Photos & Logo
                 </a>
             </div>
