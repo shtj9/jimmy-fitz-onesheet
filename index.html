@@ -121,21 +121,51 @@
             height: 100%;
             border-radius: 0.5rem; /* Match parent border-radius */
         }
+        /* Language switcher styles */
+        .lang-switcher {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 10;
+        }
+        .lang-switcher button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #F5EFE6;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+            border: 1px solid #888888;
+        }
+        .lang-switcher button.active {
+            background-color: #B22222;
+            border-color: #B22222;
+        }
+        .lang-switcher button:hover:not(.active) {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <!-- Language Switcher -->
+    <div class="lang-switcher flex space-x-2">
+        <button id="lang-en" class="active" onclick="switchLanguage('en')">EN</button>
+        <button id="lang-sr" onclick="switchLanguage('sr')">SR</button>
+    </div>
+
     <div class="max-w-4xl w-full space-y-12 bg-gray-900 p-8 sm:p-10 rounded-lg shadow-2xl border border-gray-700">
         <!-- Main content box now uses a darker gray to stand out against the red body background -->
         <!-- Band Name and Logo -->
         <div class="text-center">
             <h1 class="band-name mb-4 text-4xl sm:text-6xl md:text-7xl">JIMMY FITZSIMMONS</h1>
             <img src="https://i.imgur.com/CWY92Ht.jpeg"
-                 onerror="this.onerror=null;this.src='https://placehold.co/800x500/B22222/F5EFE6?text=BAND%20LOGO';"
+                 onerror="this.onerror=null;this.src='https://placehold.co/800x500/B22222/F5EFE6?text=BAND%0AFITZSIMMONS';"
                  alt="Jimmy Fitzsimmons Band Logo"
                  class="mx-auto rounded-lg shadow-xl border-2 border-B22222 w-full max-w-md">
             <!-- Download Button -->
             <div class="text-center mt-6">
-                <a href="https://drive.google.com/file/d/1bGmijs4YD9d8ovOAVLzJM_V18kbCvx2s/view" download="jimmy-fitzsimmons-logo.png" class="btn-primary">
+                <a href="https://drive.google.com/file/d/1bGmijs4YD9d8ovOAVLzJM_V18kbCvx2s/view" download="jimmy-fitzsimmons-logo.png" class="btn-primary" data-translate-key="download_button">
                     Download Photos & Logo
                 </a>
             </div>
@@ -143,23 +173,23 @@
 
         <!-- About The Band Section -->
         <section>
-            <h2 class="text-3xl text-center sm:text-left">ABOUT THE BAND</h2>
-            <p class="mt-4 text-lg leading-relaxed text-F5EFE6">
+            <h2 class="text-3xl text-center sm:text-left" data-translate-key="about_band_heading">ABOUT THE BAND</h2>
+            <p class="mt-4 text-lg leading-relaxed text-F5EFE6" data-translate-key="about_band_paragraph">
                 Jimmy Fitzsimmons is a Serbian garage rock band hailing from Novi Sad, born in 2024 out of a quest for authentic artistic expression. They blend chaos with killer grooves, broken rhythms, saturated guitars, and spring reverbs, creating a sound that boldly mixes funk, hip-hop, and rock. Their music is wild, loud, and unapologetically fun, designed to make you groove, laugh, and maybe even question your life choices. Welcome to the madness.
             </p>
         </section>
 
         <!-- Latest Release Section -->
         <section>
-            <h2 class="text-3xl text-center sm:text-left">LATEST RELEASE: "TOO MUCH TOO SOON" (2024)</h2>
-            <p class="mt-4 text-lg leading-relaxed text-F5EFE6">
+            <h2 class="text-3xl text-center sm:text-left" data-translate-key="latest_release_heading">LATEST RELEASE: "TOO MUCH TOO SOON" (2024)</h2>
+            <p class="mt-4 text-lg leading-relaxed text-F5EFE6" data-translate-key="latest_release_paragraph">
                 Their debut album, "Too Much Too Soon," is exactly what it sounds like: a glorious mess of raw energy and questionable decision-making. These guys practically trip over their own riffs, the arrangements are delightfully "loose," and yet, somehow, they've stumbled into something incredible. It's fun, it's short, it's stupid (in the best way possible), and it's packed with unforgettable grooves, killer guitar solos, and stories you won't forget. Featuring standout tracks like "Fake Tits," "Bronco Boy," and "This Ain't Fvcking Paris," the album showcases seasoned musicianship beneath its playful exterior. Welcome to the Jimmy Fitz Function!
             </p>
         </section>
 
         <!-- Videos Section -->
         <section>
-            <h2 class="text-3xl text-center sm:text-left">WATCH & LISTEN</h2>
+            <h2 class="text-3xl text-center sm:text-left" data-translate-key="watch_listen_heading">WATCH & LISTEN</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
                 <!-- Video 1 -->
                 <div class="video-container">
@@ -178,26 +208,26 @@
 
         <!-- On The Press Section -->
         <section>
-            <h2 class="text-3xl text-center sm:text-left">ON THE PRESS</h2>
+            <h2 class="text-3xl text-center sm:text-left" data-translate-key="on_the_press_heading">ON THE PRESS</h2>
             <div class="space-y-6 mt-4">
                 <div class="quote-box">
-                    <p>"Jimmy Fitzsimmons is an absolute breath of fresh air on the music scene, blending funk, hip-hop, and rock into a sound that is wild, loud, and fun."</p>
-                    <p class="quote-source">— Balkanrock</p>
+                    <p data-translate-key="quote_balkanrock">"Jimmy Fitzsimmons is an absolute breath of fresh air on the music scene, blending funk, hip-hop, and rock into a sound that is wild, loud, and fun."</p>
+                    <p class="quote-source" data-translate-key="source_balkanrock">— Balkanrock</p>
                 </div>
                 <div class="quote-box">
-                    <p>"Jimmy Fitzsimmons were founded in 2024 with a clear mission – to create music that moves, entertains, but also provokes. Their expression is marked by authenticity, a distance from commercial formulas, and an 'all or nothing' attitude."</p>
-                    <p class="quote-source">— Poprock</p>
+                    <p data-translate-key="quote_poprock">"Jimmy Fitzsimmons were founded in 2024 with a clear mission – to create music that moves, entertains, but also provokes. Their expression is marked by authenticity, a distance from commercial formulas, and an 'all or nothing' attitude."</p>
+                    <p class="quote-source" data-translate-key="source_poprock">— Poprock</p>
                 </div>
                 <div class="quote-box">
-                    <p>"‘Too Much, Too Soon’ album which, to be clear, also boasts strong and skillfully crafted highlights in tracks like ‘Fake Tits,’ ‘Bronco Boy,’ and ‘This Ain’t Fvcking Paris.’ This strongly supports the idea that Jimmy Fitzsimmons is not a hastily thrown-together bunch of amateurs, but rather a group of seasoned musicians who needed a kind of outlet for playing around with ideas and a solid groove — a similar approach to the one Jack White took on his No Name album last year.”</p>
-                    <p class="quote-source">— Ravno do dna</p>
+                    <p data-translate-key="quote_ravnododna">"‘Too Much, Too Soon’ album which, to be clear, also boasts strong and skillfully crafted highlights in tracks like ‘Fake Tits,’ ‘Bronco Boy,’ and ‘This Ain’t Fvcking Paris.’ This strongly supports the idea that Jimmy Fitzsimmons is not a hastily thrown-together bunch of amateurs, but rather a group of seasoned musicians who needed a kind of outlet for playing around with ideas and a solid groove — a similar approach to the one Jack White took on his No Name album last year.”</p>
+                    <p class="quote-source" data-translate-key="source_ravnododna">— Ravno do dna</p>
                 </div>
             </div>
         </section>
 
         <!-- Connect Section -->
         <section class="text-center">
-            <h2 class="text-3xl">CONNECT WITH JIMMY FITZSIMMONS</h2>
+            <h2 class="text-3xl" data-translate-key="connect_heading">CONNECT WITH JIMMY FITZSIMMONS</h2>
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mt-6">
                 <a href="https://www.facebook.com/jimmyfitzsimmonsband/" target="_blank" class="btn-primary">
                     Facebook
@@ -213,32 +243,106 @@
 
         <!-- QR Codes Section -->
         <section class="text-center">
-            <h2 class="text-3xl">SCAN FOR MORE MUSIC</h2>
+            <h2 class="text-3xl" data-translate-key="scan_music_heading">SCAN FOR MORE MUSIC</h2>
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-8 sm:space-y-0 sm:space-x-12 mt-6">
                 <div class="flex flex-col items-center">
                     <img src="https://i.imgur.com/CP9CtTi.png"
                          alt="Spotify QR Code" class="w-40 h-40 border-2 border-F5EFE6 rounded-lg shadow-lg">
-                    <p class="mt-2 text-lg font-bold text-F5EFE6">Spotify Album</p>
-                    <a href="https://open.spotify.com/album/0DEOnuWAVIGwo9Lo3zkmYm" target="_blank" class="text-B22222 hover:underline text-sm">Open on Spotify</a>
+                    <p class="mt-2 text-lg font-bold text-F5EFE6" data-translate-key="spotify_label">Spotify Album</p>
+                    <a href="https://open.spotify.com/album/0DEOnuWAVIGwo9Lo3zkmYm" target="_blank" class="text-B22222 hover:underline text-sm" data-translate-key="open_spotify">Open on Spotify</a>
                 </div>
                 <div class="flex flex-col items-center">
                     <img src="https://i.imgur.com/phdHiFN.png"
                          alt="YouTube QR Code" class="w-40 h-40 border-2 border-F5EFE6 rounded-lg shadow-lg">
-                    <p class="mt-2 text-lg font-bold text-F5EFE6">YouTube Playlist</p>
-                    <a href="https://www.youtube.com/watch?v=L0zE21Qf2wI&list=OLAK5uy_kNZeBrbwmo8kwWsgBmVz6-VAiQC2pSays" target="_blank" class="text-B22222 hover:underline text-sm">Open on YouTube</a>
+                    <p class="mt-2 text-lg font-bold text-F5EFE6" data-translate-key="youtube_label">YouTube Playlist</p>
+                    <a href="https://www.youtube.com/watch?v=L0zE21Qf2wI&list=OLAK5uy_kNZeBrbwmo8kwWsgBmVz6-VAiQC2pSays" target="_blank" class="text-B22222 hover:underline text-sm" data-translate-key="open_youtube">Open on YouTube</a>
                 </div>
             </div>
         </section>
 
         <!-- Booking & Inquiries Section -->
         <section class="text-center">
-            <h2 class="text-3xl">FOR BOOKING & INQUIRIES</h2>
+            <h2 class="text-3xl" data-translate-key="booking_inquiries_heading">FOR BOOKING & INQUIRIES</h2>
             <p class="mt-4 text-lg text-F5EFE6">
-                Email: <a href="jimmyfitzsimmons@gmail.com" class="text-B22222 hover:underline">jimmyfitzsimmons@gmail.com</a><br>
-                Phone: <a href="tel:+381616339507" class="text-B22222 hover:underline">+381616339507</a>
+                <span data-translate-key="email_label">Email</span>: <a href="jimmyfitzsimmons@gmail.com" class="text-B22222 hover:underline">jimmyfitzsimmons@gmail.com</a><br>
+                <span data-translate-key="phone_label">Phone</span>: <a href="tel:+381616339507" class="text-B22222 hover:underline">+381616339507</a>
             </p>
         </section>
 
     </div>
+
+    <script>
+        const translations = {
+            "en": {
+                "about_band_heading": "ABOUT THE BAND",
+                "about_band_paragraph": "Jimmy Fitzsimmons is a Serbian garage rock band hailing from Novi Sad, born in 2024 out of a quest for authentic artistic expression. They blend chaos with killer grooves, broken rhythms, saturated guitars, and spring reverbs, creating a sound that boldly mixes funk, hip-hop, and rock. Their music is wild, loud, and unapologetically fun, designed to make you groove, laugh, and maybe even question your life choices. Welcome to the madness.",
+                "latest_release_heading": "LATEST RELEASE: \"TOO MUCH TOO SOON\" (2024)",
+                "latest_release_paragraph": "Their debut album, \"Too Much Too Soon,\" is exactly what it sounds like: a glorious mess of raw energy and questionable decision-making. These guys practically trip over their own riffs, the arrangements are delightfully \"loose,\" and yet, somehow, they've stumbled into something incredible. It's fun, it's short, it's stupid (in the best way possible), and it's packed with unforgettable grooves, killer guitar solos, and stories you won't forget. Featuring standout tracks like \"Fake Tits,\" \"Bronco Boy,\" and \"This Ain't Fvcking Paris,\" the album showcases seasoned musicianship beneath its playful exterior. Welcome to the Jimmy Fitz Function!",
+                "watch_listen_heading": "WATCH & LISTEN",
+                "on_the_press_heading": "ON THE PRESS",
+                "quote_balkanrock": "\"Jimmy Fitzsimmons is an absolute breath of fresh air on the music scene, blending funk, hip-hop, and rock into a sound that is wild, loud, and fun.\"",
+                "source_balkanrock": "— Balkanrock",
+                "quote_poprock": "\"Jimmy Fitzsimmons were founded in 2024 with a clear mission – to create music that moves, entertains, but also provokes. Their expression is marked by authenticity, a distance from commercial formulas, and an 'all or nothing' attitude.\"",
+                "source_poprock": "— Poprock",
+                "quote_ravnododna": "“‘Too Much, Too Soon’ album which, to be clear, also boasts strong and skillfully crafted highlights in tracks like ‘Fake Tits,’ ‘Bronco Boy,’ and ‘This Ain’t Fvcking Paris.’ This strongly supports the idea that Jimmy Fitzsimmons is not a hastily thrown-together bunch of amateurs, but rather a group of seasoned musicians who needed a kind of outlet for playing around with ideas and a solid groove — a similar approach to the one Jack White took on his No Name album last year.”",
+                "source_ravnododna": "— Ravno do dna",
+                "connect_heading": "CONNECT WITH JIMMY FITZSIMMONS",
+                "download_button": "Download Photos & Logo",
+                "scan_music_heading": "SCAN FOR MORE MUSIC",
+                "spotify_label": "Spotify Album",
+                "open_spotify": "Open on Spotify",
+                "youtube_label": "YouTube Playlist",
+                "open_youtube": "Open on YouTube",
+                "booking_inquiries_heading": "FOR BOOKING & INQUIRIES",
+                "email_label": "Email",
+                "phone_label": "Phone"
+            },
+            "sr": {
+                "about_band_heading": "O BENDU",
+                "about_band_paragraph": "Osnovan 2024. godine, Jimmy Fitz je prljavi garažni rok u svakom smislu—napola gotov, ubitačan, i napravljen za djuskanje. Ovo nije umetnički projekat. Nema pretencioznosti. Nema beskrajnog doterivanja, što njihov prvenac „Too much, too soon“ i potvrđuje. Dakle, samo sirovina i rifovi koje, kako tvrde, svačija keva može da odsvira ako se malo iscima. Mešajući funk, hip-hop i garaž rok, ovi novosadski momci žele da se mrdaš, smeješ i možda preispitaš neku svoju životnu odluku. Njihov svet je apsurdan, rifovi uprljani, ritmovi razbijeni, emocije polurazrađene - sve što treba za jedno veče dobre svirke.",
+                "latest_release_heading": "NAJNOVIJE IZDANJE: \"TOO MUCH TOO SOON\" (2024)",
+                "latest_release_paragraph": "Njihov debitantski album, \"Too Much, Too Soon\", je upravo onakav kako i zvuči: veličanstveni haos sirove energije i sumnjivih odluka. Ovi momci se praktično sapliću o sopstvene rifove, aranžmani su... recimo 'labavi', a ipak, nekako su naišli na nešto neverovatno. Zabavno je, kratko, glupo (na najbolji mogući način) i prepuno nezaboravnih gruvova, ubitačnih gitarskih solaža i priča koje nećete zaboraviti. Sa istaknutim numerama kao što su 'Fake Tits', 'Bronco Boy' i 'This Ain't Fvcking Paris', album pokazuje iskusno muziciranje ispod svoje razigrane spoljašnosti.",
+                "watch_listen_heading": "GLEDAJTE I SLUŠAJTE",
+                "on_the_press_heading": "U MEDIJIMA",
+                "quote_balkanrock": "\"Bend Jimmy Fitzsimmons je apsolutno osveženje na muzičkoj sceni, mešajući funk, hip hop i rok u zvuk koji je divlji, glasan i zabavan.\"",
+                "source_balkanrock": "— Balkanrock",
+                "quote_poprock": "\"Jimmy Fitzsimmons osnovani su 2024. godine s jasnom misijom – stvoriti glazbu koja pokreće, zabavlja, ali i provocira. Njihov izričaj odlikuje autentičnost, distanca od komercijalne formule i stav “sve ili ništa”.\"",
+                "source_poprock": "— Poprock",
+                "quote_ravnododna": "„Too Much, Too Soon“ album koji, da ne bi bilo zabune, posjeduje i svoja jaka i znalačka uporišta u pjesmama kao što su „Fake Tits“, „Bronco Boy“ i „This Ain’t Fvcking Paris“. To dovoljno ide u prilog tezi da Jimmy Fitzsimmons nije na brzino sklepano društvance diletanata, već spoj iskusnih glazbenika kojima je trebao svojevrsni ventil za igranje s idejama i dobrim grooveom, što je dobrim dijelom sličan pristup za kojim je posegnuo Jack White na svom prošlogodišnjem „No Name“ albumu.",
+                "source_ravnododna": "— Ravno do dna",
+                "connect_heading": "POVEŽITE SE SA JIMMY FITZSIMMONS",
+                "download_button": "Preuzmite Fotografije i Logo",
+                "scan_music_heading": "SKENIRAJTE ZA VIŠE MUZIKE",
+                "spotify_label": "Spotify Album",
+                "open_spotify": "Otvori na Spotify-u",
+                "youtube_label": "YouTube Plejlista",
+                "open_youtube": "Otvori na YouTube-u",
+                "booking_inquiries_heading": "ZA BOOKING",
+                "email_label": "Mejl",
+                "phone_label": "Telefon"
+            }
+        };
+
+        function switchLanguage(lang) {
+            // Update all elements with data-translate-key
+            document.querySelectorAll('[data-translate-key]').forEach(element => {
+                const key = element.getAttribute('data-translate-key');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Update active state of language buttons
+            document.querySelectorAll('.lang-switcher button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.getElementById('lang-' + lang).classList.add('active');
+        }
+
+        // Set default language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            switchLanguage('en'); // Default to English
+        });
+    </script>
 </body>
 </html>
