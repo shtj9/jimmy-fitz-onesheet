@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Band Technical Rider</title>
+    <title data-translate="pageTitle">Band Technical Rider</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
@@ -35,36 +35,43 @@
 <body class="bg-gray-100 p-4 sm:p-6 md:p-8">
     <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
         <!-- Header Section -->
-        <header class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 sm:p-8 text-white rounded-t-lg">
-            <h1 class="text-3xl sm:text-4xl font-bold mb-2 text-center">
+        <header class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 sm:p-8 text-white rounded-t-lg relative">
+            <h1 class="text-3xl sm:text-4xl font-bold mb-2 text-center" data-translate="mainTitle">
                 JIMMY FITZSIMMONS – TECHNICAL RIDER
             </h1>
         </header>
 
+        <!-- Language Toggle Button moved outside header to avoid conflict -->
+        <div class="flex justify-end p-4">
+            <button id="languageToggle" class="bg-white text-blue-700 px-4 py-2 rounded-full shadow-md hover:bg-blue-100 transition duration-300 ease-in-out text-sm font-medium">
+                Srpski / English
+            </button>
+        </div>
+        
         <main class="p-6 sm:p-8 space-y-8">
             <!-- Line Up Section -->
             <section class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">1. The Line Up</h2>
-                <p class="mb-4 text-gray-700">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2" data-translate="lineUpTitle">1. The Line Up</h2>
+                <p class="mb-4 text-gray-700" data-translate="lineUpDescription">
                     This section provides a simple but precise overview of the band's lineup, instruments, and basic microphone/DI requirements.
                 </p>
                 <div class="overflow-x-auto rounded-lg border border-gray-200 shadow-md">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-100">
                             <tr>
-                                <th scope="col" class="text-left">
+                                <th scope="col" class="text-left" data-translate="nameHeader">
                                     Name
                                 </th>
-                                <th scope="col" class="text-left">
+                                <th scope="col" class="text-left" data-translate="playsHeader">
                                     Plays
                                 </th>
-                                <th scope="col" class="text-left">
+                                <th scope="col" class="text-left" data-translate="ampHeader">
                                     Amp
                                 </th>
-                                <th scope="col" class="text-center">
+                                <th scope="col" class="text-center" data-translate="diHeader">
                                     DI
                                 </th>
-                                <th scope="col" class="text-left">
+                                <th scope="col" class="text-left" data-translate="micsHeader">
                                     Mics
                                 </th>
                             </tr>
@@ -72,38 +79,38 @@
                         <tbody class="divide-y divide-gray-200">
                             <tr>
                                 <td class="text-left">Marko</td>
-                                <td class="text-left">Main Vocals / Synth</td>
-                                <td class="text-left">No</td>
+                                <td class="text-left" data-translate="markoPlays">Main Vocals / Synth</td>
+                                <td class="text-left" data-translate="no">No</td>
                                 <td class="text-center">1</td>
-                                <td class="text-left">1 Vox<br>1 Synth DI</td>
+                                <td class="text-left" data-translate="markoMics">1 Vox<br>1 Synth DI</td>
                             </tr>
                             <tr>
                                 <td class="text-left">Krle</td>
-                                <td class="text-left">Lead Guitar / Backing Vocals</td>
-                                <td class="text-left">Guitar</td>
-                                <td class="text-center">No</td>
-                                <td class="text-left">1 GTR Mic<br>1 Vox</td>
+                                <td class="text-left" data-translate="krlePlays">Lead Guitar / Backing Vocals</td>
+                                <td class="text-left" data-translate="guitar">Guitar</td>
+                                <td class="text-center" data-translate="no">No</td>
+                                <td class="text-left" data-translate="krleMics">1 GTR Mic<br>1 Vox</td>
                             </tr>
                             <tr>
                                 <td class="text-left">Banjac</td>
-                                <td class="text-left">Guitar / Backing Vocals</td>
-                                <td class="text-left">Guitar</td>
-                                <td class="text-center">No</td>
-                                <td class="text-left">1 GTR Mic<br>1 Vox</td>
+                                <td class="text-left" data-translate="banjacPlays">Guitar / Backing Vocals</td>
+                                <td class="text-left" data-translate="guitar">Guitar</td>
+                                <td class="text-center" data-translate="no">No</td>
+                                <td class="text-left" data-translate="banjacMics">1 GTR Mic<br>1 Vox</td>
                             </tr>
                             <tr>
                                 <td class="text-left">Petar</td>
-                                <td class="text-left">Bass</td>
-                                <td class="text-left">Bass or DI</td>
+                                <td class="text-left" data-translate="petarPlays">Bass</td>
+                                <td class="text-left" data-translate="bassOrDi">Bass or DI</td>
                                 <td class="text-center">1</td>
-                                <td class="text-left">1 Bass DI</td>
+                                <td class="text-left" data-translate="petarMics">1 Bass DI</td>
                             </tr>
                             <tr>
                                 <td class="text-left">Tomica</td>
-                                <td class="text-left">Drums / Backing Vocals</td>
-                                <td class="text-left">No</td>
-                                <td class="text-center">No</td>
-                                <td class="text-left">Drum Mic Set<br>1 Vox</td>
+                                <td class="text-left" data-translate="tomicaPlays">Drums / Backing Vocals</td>
+                                <td class="text-left" data-translate="no">No</td>
+                                <td class="text-center" data-translate="no">No</td>
+                                <td class="text-left" data-translate="tomicaMics">Drum Mic Set<br>1 Vox</td>
                             </tr>
                         </tbody>
                     </table>
@@ -112,36 +119,36 @@
 
             <!-- Equipment/Backline Section (Step 2) -->
             <section class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">2. Equipment / Backline</h2>
-                <p class="mb-6 text-gray-700">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2" data-translate="equipmentTitle">2. Equipment / Backline</h2>
+                <p class="mb-6 text-gray-700" data-translate="equipmentDescription">
                     This section details the specific backline and equipment required for the band's performance, indicating whether it is provided by the artist or the venue.
                 </p>
 
                 <div class="space-y-8">
                     <!-- Drums Kit -->
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Drums Kit (for Tomica)</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4" data-translate="drumsKitTitle">Drums Kit (for Tomica)</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="bg-white p-5 rounded-lg shadow border border-blue-200">
-                                <h4 class="text-lg font-bold text-blue-700 mb-3 border-b pb-2 border-blue-300">Artist Provided:</h4>
+                                <h4 class="text-lg font-bold text-blue-700 mb-3 border-b pb-2 border-blue-300" data-translate="artistProvidedHeader">Artist Provided:</h4>
                                 <ul class="list-disc list-inside ml-4 space-y-2 text-gray-700">
-                                    <li><strong>Kick Pedal (1x)</strong></li>
-                                    <li><strong>Snare Drum (1x)</strong></li>
-                                    <li><strong>Hi-Hat Cymbals (1x pair)</strong></li>
-                                    <li><strong>Crash Cymbal (1x)</strong></li>
-                                    <li><strong>Ride Cymbal (1x)</strong></li>
+                                    <li data-translate="kickPedal"><strong>Kick Pedal (1x)</strong></li>
+                                    <li data-translate="snareDrum"><strong>Snare Drum (1x)</strong></li>
+                                    <li data-translate="hiHatCymbals"><strong>Hi-Hat Cymbals (1x pair)</strong></li>
+                                    <li data-translate="crashCymbal"><strong>Crash Cymbal (1x)</strong></li>
+                                    <li data-translate="rideCymbal"><strong>Ride Cymbal (1x)</strong></li>
                                 </ul>
                             </div>
                             <div class="bg-white p-5 rounded-lg shadow border border-green-200">
-                                <h4 class="text-lg font-bold text-green-700 mb-3 border-b pb-2 border-green-300">Venue Provided:</h4>
+                                <h4 class="text-lg font-bold text-green-700 mb-3 border-b pb-2 border-green-300" data-translate="venueProvidedHeader">Venue Provided:</h4>
                                 <ul class="list-disc list-inside ml-4 space-y-2 text-gray-700">
-                                    <li><strong>Kick Drum (1x):</strong> 22" or 20" diameter preferred.</li>
-                                    <li><strong>Drum Stool (1x)</strong></li>
-                                    <li><strong>Snare Stand (1x)</strong></li>
-                                    <li><strong>Rack Tom (1x):</strong> 12" or 10" diameter preferred.</li>
-                                    <li><strong>Floor Tom (1x):</strong> 16" or 14" diameter preferred.</li>
-                                    <li><strong>Hi-Hat Stand (1x)</strong></li>
-                                    <li><strong>Cymbal Boom Stands (3x):</strong> Required for Overhead Right, Overhead Left, and an additional spare.</li>
+                                    <li data-translate="kickDrum"><strong>Kick Drum (1x):</strong> 22" or 20" diameter preferred.</li>
+                                    <li data-translate="drumStool"><strong>Drum Stool (1x)</strong></li>
+                                    <li data-translate="snareStand"><strong>Snare Stand (1x)</strong></li>
+                                    <li data-translate="rackTom"><strong>Rack Tom (1x):</strong> 12" or 10" diameter preferred.</li>
+                                    <li data-translate="floorTom"><strong>Floor Tom (1x):</strong> 16" or 14" diameter preferred.</li>
+                                    <li data-translate="hiHatStand"><strong>Hi-Hat Stand (1x)</strong></li>
+                                    <li data-translate="cymbalStands"><strong>Cymbal Boom Stands (3x):</strong> Required for Overhead Right, Overhead Left, and an additional spare.</li>
                                 </ul>
                             </div>
                         </div>
@@ -149,19 +156,19 @@
 
                     <!-- Amplifiers -->
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Amplifiers</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4" data-translate="amplifiersTitle">Amplifiers</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="bg-white p-5 rounded-lg shadow border border-blue-200">
-                                <h4 class="text-lg font-bold text-blue-700 mb-3 border-b pb-2 border-blue-300">Artist Provided:</h4>
+                                <h4 class="text-lg font-bold text-blue-700 mb-3 border-b pb-2 border-blue-300" data-translate="artistProvidedHeader">Artist Provided:</h4>
                                 <ul class="list-disc list-inside ml-4 space-y-2 text-gray-700">
-                                    <li><strong>Guitar Amplifiers (2x):</strong> Krle and Banjac will provide their own amplifiers, each with a 1x12" speaker cabinet.</li>
+                                    <li data-translate="guitarAmps"><strong>Guitar Amplifiers (2x):</strong> Krle and Banjac will provide their own amplifiers, each with a 1x12" speaker cabinet.</li>
                                 </ul>
                             </div>
                             <div class="bg-white p-5 rounded-lg shadow border border-green-200">
-                                <h4 class="text-lg font-bold text-green-700 mb-3 border-b pb-2 border-green-300">Venue Provided:</h4>
+                                <h4 class="text-lg font-bold text-green-700 mb-3 border-b pb-2 border-green-300" data-translate="venueProvidedHeader">Venue Provided:</h4>
                                 <ul class="list-disc list-inside ml-4 space-y-2 text-gray-700">
-                                    <li><strong>Bass Amplification (1x, for Petar):</strong> Either a suitable bass amplifier and cabinet or a high-quality DI Box for direct bass signal.</li>
-                                    <li><strong>Guitar Stands (4x)</strong></li>
+                                    <li data-translate="bassAmp"><strong>Bass Amplification (1x, for Petar):</strong> Either a suitable bass amplifier and cabinet or a high-quality DI Box for direct bass signal.</li>
+                                    <li data-translate="guitarStands"><strong>Guitar Stands (4x)</strong></li>
                                 </ul>
                             </div>
                         </div>
@@ -169,46 +176,46 @@
 
                     <!-- Microphones & DI Boxes & Other -->
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Microphones & DI Boxes & Other</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4" data-translate="micsDiOtherTitle">Microphones & DI Boxes & Other</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="bg-white p-5 rounded-lg shadow border border-blue-200">
-                                <h4 class="text-lg font-bold text-blue-700 mb-3 border-b pb-2 border-blue-300">Artist Provided:</h4>
+                                <h4 class="text-lg font-bold text-blue-700 mb-3 border-b pb-2 border-blue-300" data-translate="artistProvidedHeader">Artist Provided:</h4>
                                 <ul class="list-disc list-inside ml-4 space-y-2 text-gray-700">
-                                    <li><strong>2x Dynamic Vocal Microphones (SM57):</strong> Marko (Main Vocals), Krle (Backing Vocals)</li>
-                                    <li><strong>The band will provide its own synthesizer (for Marko).</strong></li>
+                                    <li data-translate="artistVocalMics"><strong>2x Dynamic Vocal Microphones (SM57):</strong> Marko (Main Vocals), Krle (Backing Vocals)</li>
+                                    <li data-translate="artistSynth"><strong>The band will provide its own synthesizer (for Marko).</strong></li>
                                 </ul>
                             </div>
                             <div class="bg-white p-5 rounded-lg shadow border border-green-200">
-                                <h4 class="text-lg font-bold text-green-700 mb-3 border-b pb-2 border-green-300">Venue Provided:</h4>
+                                <h4 class="text-lg font-bold text-green-700 mb-3 border-b pb-2 border-green-300" data-translate="venueProvidedHeader">Venue Provided:</h4>
                                 <div class="space-y-4 text-gray-700">
                                     <div>
-                                        <strong class="font-semibold text-gray-800 block mb-1">Drum Microphones:</strong>
+                                        <strong class="font-semibold text-gray-800 block mb-1" data-translate="drumMicsHeader">Drum Microphones:</strong>
                                         <ul class="list-disc list-outside ml-4 space-y-1">
-                                            <li><strong>Kick Drum:</strong> 1x Dynamic Microphone (e.g., Shure Beta 52A, AKG D112)</li>
-                                            <li><strong>Snare Drum:</strong> 2x Dynamic Microphones (e.g., Shure SM57) for top and bottom miking.</li>
-                                            <li><strong>Toms:</strong> 2x Dynamic Microphones (e.g., Sennheiser e604, Shure SM57) for Rack Tom and Floor Tom.</li>
-                                            <li><strong>Hi-Hat:</strong> 1x Small Diaphragm Condenser Microphone (e.g., Shure SM81, Rode NT5).</li>
-                                            <li><strong>Overheads:</strong> 2x Large Diaphragm Condenser Microphones (e.g., Rode NT1, Audio-Technica AT2020) for stereo overhead miking (Left and Right).</li>
+                                            <li data-translate="kickDrumMic"><strong>Kick Drum:</strong> 1x Dynamic Microphone (e.g., Shure Beta 52A, AKG D112)</li>
+                                            <li data-translate="snareDrumMics"><strong>Snare Drum:</strong> 2x Dynamic Microphones (e.g., Shure SM57) for top and bottom miking.</li>
+                                            <li data-translate="tomsMics"><strong>Toms:</strong> 2x Dynamic Microphones (e.g., Sennheiser e604, Shure SM57) for Rack Tom and Floor Tom.</li>
+                                            <li data-translate="hiHatMic"><strong>Hi-Hat:</strong> 1x Small Diaphragm Condenser Microphone (e.g., Shure SM81, Rode NT5).</li>
+                                            <li data-translate="overheadsMics"><strong>Overheads:</strong> 2x Large Diaphragm Condenser Microphones (e.g., Rode NT1, Audio-Technica AT2020) for stereo overhead miking (Left and Right).</li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <strong class="font-semibold text-gray-800 block mb-1">Instrument Amplifiers Microphones:</strong>
+                                        <strong class="font-semibold text-gray-800 block mb-1" data-translate="instrumentAmpMicsHeader">Instrument Amplifiers Microphones:</strong>
                                         <ul class="list-disc list-outside ml-4 space-y-1">
-                                            <li><strong>Guitar Amplifiers:</strong> 2x Dynamic Microphones (e.g., Shure SM57) for Krle's and Banjac's guitar amplifiers.</li>
+                                            <li data-translate="guitarAmpMics"><strong>Guitar Amplifiers:</strong> 2x Dynamic Microphones (e.g., Shure SM57) for Krle's and Banjac's guitar amplifiers.</li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <strong class="font-semibold text-gray-800 block mb-1">Vocal Microphones:</strong>
+                                        <strong class="font-semibold text-gray-800 block mb-1" data-translate="vocalMicsHeader">Vocal Microphones:</strong>
                                         <ul class="list-disc list-outside ml-4 space-y-1">
-                                            <li><strong>1x Dynamic Vocal Microphone (e.g., Shure SM58, Sennheiser e935)</strong> for backing vocals: Tomica - drummer (Backing Vocals)</li>
-                                            <li><strong>1x Dynamic Vocal Microphone (e.g., Shure SM58, Sennheiser e935)</strong> for backing vocals: Banjac</li>
+                                            <li data-translate="tomicaVoxMic"><strong>1x Dynamic Vocal Microphone (e.g., Shure SM58, Sennheiser e935)</strong> for backing vocals: Tomica - drummer (Backing Vocals)</li>
+                                            <li data-translate="banjacVoxMic"><strong>1x Dynamic Vocal Microphone (e.g., Shure SM58, Sennheiser e935)</strong> for backing vocals: Banjac</li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <strong class="font-semibold text-gray-800 block mb-1">DI Boxes:</strong>
+                                        <strong class="font-semibold text-gray-800 block mb-1" data-translate="diBoxesHeader">DI Boxes:</strong>
                                         <ul class="list-disc list-outside ml-4 space-y-1">
-                                            <li><strong>1x for bass if not using a bass amp</strong></li>
-                                            <li><strong>1x for synth</strong></li>
+                                            <li data-translate="bassDi"><strong>1x for bass if not using a bass amp</strong></li>
+                                            <li data-translate="synthDi"><strong>1x for synth</strong></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -220,24 +227,24 @@
 
             <!-- Input List Section (New Step 3) -->
             <section class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">3. Input List</h2>
-                <p class="mb-4 text-gray-700">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2" data-translate="inputListTitle">3. Input List</h2>
+                <p class="mb-4 text-gray-700" data-translate="inputListDescription">
                     This list highlights every audio line necessary for the show, providing the engineer with an overview of required channels and preferred equipment.
                 </p>
                 <div class="overflow-x-auto rounded-lg border border-gray-200 shadow-md">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-100">
                             <tr>
-                                <th scope="col" class="text-center">
+                                <th scope="col" class="text-center" data-translate="channelHeader">
                                     Channel
                                 </th>
-                                <th scope="col" class="text-left">
+                                <th scope="col" class="text-left" data-translate="instrumentSourceHeader">
                                     Instrument/Source
                                 </th>
-                                <th scope="col" class="text-left">
+                                <th scope="col" class="text-left" data-translate="micDiTypeHeader">
                                     Mic/DI Type (Preferred)
                                 </th>
-                                <th scope="col" class="text-left">
+                                <th scope="col" class="text-left" data-translate="standTypeHeader">
                                     Stand Type
                                 </th>
                             </tr>
@@ -245,99 +252,99 @@
                         <tbody class="divide-y divide-gray-200">
                             <tr>
                                 <td class="text-center">1</td>
-                                <td class="text-left">Kick In</td>
+                                <td class="text-left" data-translate="kickIn">Kick In</td>
                                 <td class="text-left">D112</td>
-                                <td class="text-left">Short Boom</td>
+                                <td class="text-left" data-translate="shortBoom">Short Boom</td>
                             </tr>
                             <tr>
                                 <td class="text-center">2</td>
-                                <td class="text-left">Snare Top</td>
+                                <td class="text-left" data-translate="snareTop">Snare Top</td>
                                 <td class="text-left">SM57</td>
-                                <td class="text-left">Snare Clip</td>
+                                <td class="text-left" data-translate="snareClip">Snare Clip</td>
                             </tr>
                             <tr>
                                 <td class="text-center">3</td>
-                                <td class="text-left">Snare Bottom</td>
+                                <td class="text-left" data-translate="snareBottom">Snare Bottom</td>
                                 <td class="text-left">SM57</td>
-                                <td class="text-left">Short Boom</td>
+                                <td class="text-left" data-translate="shortBoom">Short Boom</td>
                             </tr>
                             <tr>
                                 <td class="text-center">4</td>
-                                <td class="text-left">Rack Tom</td>
-                                <td class="text-left">Dynamic mic</td>
-                                <td class="text-left">Drum Clip</td>
+                                <td class="text-left" data-translate="rackTomInput">Rack Tom</td>
+                                <td class="text-left" data-translate="dynamicMic">Dynamic mic</td>
+                                <td class="text-left" data-translate="drumClip">Drum Clip</td>
                             </tr>
                             <tr>
                                 <td class="text-center">5</td>
-                                <td class="text-left">Floor Tom</td>
-                                <td class="text-left">Dynamic mic</td>
-                                <td class="text-left">Drum Clip</td>
+                                <td class="text-left" data-translate="floorTomInput">Floor Tom</td>
+                                <td class="text-left" data-translate="dynamicMic">Dynamic mic</td>
+                                <td class="text-left" data-translate="drumClip">Drum Clip</td>
                             </tr>
                             <tr>
                                 <td class="text-center">6</td>
-                                <td class="text-left">Hi Hat</td>
-                                <td class="text-left">Condenser mic</td>
-                                <td class="text-left">Tall Boom</td>
+                                <td class="text-left" data-translate="hiHatInput">Hi Hat</td>
+                                <td class="text-left" data-translate="condenserMic">Condenser mic</td>
+                                <td class="text-left" data-translate="tallBoom">Tall Boom</td>
                             </tr>
                             <tr>
                                 <td class="text-center">7</td>
-                                <td class="text-left">OH R</td>
-                                <td class="text-left">Condenser mic</td>
-                                <td class="text-left">Tall Boom</td>
+                                <td class="text-left" data-translate="ohR">OH R</td>
+                                <td class="text-left" data-translate="condenserMic">Condenser mic</td>
+                                <td class="text-left" data-translate="tallBoom">Tall Boom</td>
                             </tr>
                             <tr>
                                 <td class="text-center">8</td>
-                                <td class="text-left">OH L</td>
-                                <td class="text-left">Condenser mic</td>
-                                <td class="text-left">Tall Boom</td>
+                                <td class="text-left" data-translate="ohL">OH L</td>
+                                <td class="text-left" data-translate="condenserMic">Condenser mic</td>
+                                <td class="text-left" data-translate="tallBoom">Tall Boom</td>
                             </tr>
                             <tr>
                                 <td class="text-center">9</td>
-                                <td class="text-left">Bass</td>
-                                <td class="text-left">DI</td>
-                                <td class="text-left">N/A</td>
+                                <td class="text-left" data-translate="bassInput">Bass</td>
+                                <td class="text-left" data-translate="diType">DI</td>
+                                <td class="text-left" data-translate="na">N/A</td>
                             </tr>
                             <tr>
                                 <td class="text-center">10</td>
-                                <td class="text-left">GTR Krle</td>
+                                <td class="text-left" data-translate="gtrKrleInput">GTR Krle</td>
                                 <td class="text-left">SM57</td>
-                                <td class="text-left">Short Boom</td>
+                                <td class="text-left" data-translate="shortBoom">Short Boom</td>
                             </tr>
                             <tr>
                                 <td class="text-center">11</td>
-                                <td class="text-left">GTR Banjac</td>
+                                <td class="text-left" data-translate="gtrBanjacInput">GTR Banjac</td>
                                 <td class="text-left">SM57</td>
-                                <td class="text-left">Short Boom</td>
+                                <td class="text-left" data-translate="shortBoom">Short Boom</td>
                             </tr>
                             <tr>
                                 <td class="text-center">12</td>
-                                <td class="text-left">Krle Vox</td>
+                                <td class="text-left" data-translate="krleVoxInput">Krle Vox</td>
                                 <td class="text-left">SM57</td>
-                                <td class="text-left">Tall Boom</td>
+                                <td class="text-left" data-translate="tallBoom">Tall Boom</td>
                             </tr>
                             <tr>
                                 <td class="text-center">13</td>
-                                <td class="text-left">Tomica drums Vox</td>
+                                <td class="text-left" data-translate="tomicaDrumsVoxInput">Tomica drums Vox</td>
                                 <td class="text-left">SM58</td>
-                                <td class="text-left">Tall Boom</td>
+                                <td class="text-left" data-translate="tallBoom">Tall Boom</td>
                             </tr>
                             <tr>
                                 <td class="text-center">14</td>
-                                <td class="text-left">Banjac Vox</td>
+                                <td class="text-left" data-translate="banjacVoxInput">Banjac Vox</td>
                                 <td class="text-left">SM57</td>
-                                <td class="text-left">Tall Boom</td>
+                                <td class="text-left" data-translate="tallBoom">Tall Boom</td>
                             </tr>
                             <tr>
                                 <td class="text-center">15</td>
-                                <td class="text-left">Marko Main Vox</td>
+                                <td class="text-left" data-translate="markoMainVoxInput">Marko Main Vox</td>
                                 <td class="text-left">SM57</td>
-                                <td class="text-left">Tall Boom</td>
+                                <td class="text-left" data-translate="tallBoom">Tall Boom</td>
                             </tr>
                             <tr>
                                 <td class="text-center">16</td>
-                                <td class="text-left">Synth</td>
-                                <td class="text-left">DI</td>
-                                <td class="text-left">N/A</td>
+                                <td class="text-left" data-translate="synthInput">Synth</td>
+                                <td class="text-left" data-translate="diType">DI</td>
+                                <td class="text-left" data-translate="na">N/A</td>
                             </tr>
                         </tbody>
                     </table>
@@ -346,28 +353,266 @@
 
             <!-- Stage Plot Section (Now Step 4) -->
             <section class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">4. Stage Plot</h2>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2" data-translate="stagePlotTitle">4. Stage Plot</h2>
                 <div class="flex justify-center mb-4">
                     <img src="https://i.imgur.com/mI1OB5h.jpeg" alt="Stage Plot Diagram" class="max-w-full h-auto rounded-lg shadow-md">
                 </div>
-
             </section>
 
-              <!-- Special Needs / Requests -->
-             <section class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">5. Special Needs / Requests</h2>
-                <p class="mb-4 text-gray-700">
+            <!-- Special Needs / Requests -->
+            <section class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2" data-translate="specialNeedsTitle">5. Special Needs / Requests</h2>
+                <p class="mb-4 text-gray-700" data-translate="soundcheckRequest">
                     We strongly encourage a soundcheck.
                 </p>
-
             </section>
         </main>
 
         <!-- Footer Section -->
         <footer class="bg-gray-900 p-4 sm:p-6 text-white text-center text-sm rounded-b-lg">
-            <p>&copy; 2025 Jimmy Fitzsimmons. All Rights Reserved.</p>
-            <p>Thank you for your cooperation in making our performance a success!</p>
+            <p data-translate="copyrightText">&copy; 2025 Jimmy Fitzsimmons. All Rights Reserved.</p>
+            <p data-translate="thankYouText">Thank you for your cooperation in making our performance a success!</p>
         </footer>
     </div>
+
+    <script>
+        // Object containing translations for different languages
+        const translations = {
+            en: {
+                pageTitle: "Band Technical Rider",
+                mainTitle: "JIMMY FITZSIMMONS – TECHNICAL RIDER",
+                lineUpTitle: "1. The Line Up",
+                lineUpDescription: "This section provides a simple but precise overview of the band's lineup, instruments, and basic microphone/DI requirements.",
+                nameHeader: "Name",
+                playsHeader: "Plays",
+                ampHeader: "Amp",
+                diHeader: "DI",
+                micsHeader: "Mics",
+                markoPlays: "Main Vocals / Synth",
+                no: "No",
+                markoMics: "1 Vox<br>1 Synth DI",
+                krlePlays: "Lead Guitar / Backing Vocals",
+                guitar: "Guitar",
+                krleMics: "1 GTR Mic<br>1 Vox",
+                banjacPlays: "Guitar / Backing Vocals",
+                banjacMics: "1 GTR Mic<br>1 Vox",
+                petarPlays: "Bass",
+                bassOrDi: "Bass or DI",
+                petarMics: "1 Bass DI",
+                tomicaPlays: "Drums / Backing Vocals",
+                tomicaMics: "Drum Mic Set<br>1 Vox",
+                equipmentTitle: "2. Equipment / Backline",
+                equipmentDescription: "This section details the specific backline and equipment required for the band's performance, indicating whether it is provided by the artist or the venue.",
+                drumsKitTitle: "Drums Kit (for Tomica)",
+                artistProvidedHeader: "Artist Provided:",
+                venueProvidedHeader: "Venue Provided:",
+                kickPedal: "<strong>Kick Pedal (1x)</strong>",
+                snareDrum: "<strong>Snare Drum (1x)</strong>",
+                hiHatCymbals: "<strong>Hi-Hat Cymbals (1x pair)</strong>",
+                crashCymbal: "<strong>Crash Cymbal (1x)</strong>",
+                rideCymbal: "<strong>Ride Cymbal (1x)</strong>",
+                kickDrum: "<strong>Kick Drum (1x):</strong> 22\" or 20\" diameter preferred.",
+                drumStool: "<strong>Drum Stool (1x)</strong>",
+                snareStand: "<strong>Snare Stand (1x)</strong>",
+                rackTom: "<strong>Rack Tom (1x):</strong> 12\" or 10\" diameter preferred.",
+                floorTom: "<strong>Floor Tom (1x):</strong> 16\" or 14\" diameter preferred.",
+                hiHatStand: "<strong>Hi-Hat Stand (1x)</strong>",
+                cymbalStands: "<strong>Cymbal Boom Stands (3x):</strong> Required for Overhead Right, Overhead Left, and an additional spare.",
+                amplifiersTitle: "Amplifiers",
+                guitarAmps: "<strong>Guitar Amplifiers (2x):</strong> Krle and Banjac will provide their own amplifiers, each with a 1x12\" speaker cabinet.",
+                bassAmp: "<strong>Bass Amplification (1x, for Petar):</strong> Either a suitable bass amplifier and cabinet or a high-quality DI Box for direct bass signal.",
+                guitarStands: "<strong>Guitar Stands (4x)</strong>",
+                micsDiOtherTitle: "Microphones & DI Boxes & Other",
+                artistVocalMics: "<strong>2x Dynamic Vocal Microphones (SM57):</strong> Marko (Main Vocals), Krle (Backing Vocals)",
+                artistSynth: "<strong>The band will provide its own synthesizer (for Marko).</strong>",
+                drumMicsHeader: "Drum Microphones:",
+                kickDrumMic: "<strong>Kick Drum:</strong> 1x Dynamic Microphone (e.g., Shure Beta 52A, AKG D112)",
+                snareDrumMics: "<strong>Snare Drum:</strong> 2x Dynamic Microphones (e.g., Shure SM57) for top and bottom miking.",
+                tomsMics: "<strong>Toms:</strong> 2x Dynamic Microphones (e.g., Sennheiser e604, Shure SM57) for Rack Tom and Floor Tom.",
+                hiHatMic: "<strong>Hi-Hat:</strong> 1x Small Diaphragm Condenser Microphone (e.g., Shure SM81, Rode NT5).",
+                overheadsMics: "<strong>Overheads:</strong> 2x Large Diaphragm Condenser Microphones (e.g., Rode NT1, Audio-Technica AT2020) for stereo overhead miking (Left and Right).",
+                instrumentAmpMicsHeader: "Instrument Amplifiers Microphones:",
+                guitarAmpMics: "<strong>Guitar Amplifiers:</strong> 2x Dynamic Microphones (e.g., Shure SM57) for Krle's and Banjac's guitar amplifiers.",
+                vocalMicsHeader: "Vocal Microphones:",
+                tomicaVoxMic: "<strong>1x Dynamic Vocal Microphone (e.g., Shure SM58, Sennheiser e935)</strong> for backing vocals: Tomica - drummer (Backing Vocals)",
+                banjacVoxMic: "<strong>1x Dynamic Vocal Microphone (e.g., Shure SM58, Sennheiser e935)</strong> for backing vocals: Banjac",
+                diBoxesHeader: "DI Boxes:",
+                bassDi: "<strong>1x for bass if not using a bass amp</strong>",
+                synthDi: "<strong>1x for synth</strong>",
+                inputListTitle: "3. Input List",
+                inputListDescription: "This list highlights every audio line necessary for the show, providing the engineer with an overview of required channels and preferred equipment.",
+                channelHeader: "Channel",
+                instrumentSourceHeader: "Instrument/Source",
+                micDiTypeHeader: "Mic/DI Type (Preferred)",
+                standTypeHeader: "Stand Type",
+                kickIn: "Kick In",
+                snareTop: "Snare Top",
+                snareBottom: "Snare Bottom",
+                rackTomInput: "Rack Tom",
+                dynamicMic: "Dynamic mic",
+                drumClip: "Drum Clip",
+                floorTomInput: "Floor Tom",
+                hiHatInput: "Hi Hat",
+                condenserMic: "Condenser mic",
+                ohR: "OH R",
+                ohL: "OH L",
+                bassInput: "Bass",
+                diType: "DI",
+                na: "N/A",
+                gtrKrleInput: "GTR Krle",
+                gtrBanjacInput: "GTR Banjac",
+                krleVoxInput: "Krle Vox",
+                tomicaDrumsVoxInput: "Tomica drums Vox",
+                banjacVoxInput: "Banjac Vox",
+                markoMainVoxInput: "Marko Main Vox",
+                synthInput: "Synth",
+                shortBoom: "Short Boom",
+                snareClip: "Snare Clip",
+                tallBoom: "Tall Boom",
+                stagePlotTitle: "4. Stage Plot",
+                specialNeedsTitle: "5. Special Needs / Requests",
+                soundcheckRequest: "We strongly encourage a soundcheck.",
+                copyrightText: "&copy; 2025 Jimmy Fitzsimmons. All Rights Reserved.",
+                thankYouText: "Thank you for your cooperation in making our performance a success!"
+            },
+            sr: {
+                pageTitle: "Tehnički Rajder Benda",
+                mainTitle: "JIMMY FITZSIMMONS – TEHNIČKI RAJDER",
+                lineUpTitle: "1. Postava Benda",
+                lineUpDescription: "Ovaj odeljak pruža jednostavan, ali precizan pregled postave benda, instrumenata i osnovnih zahteva za mikrofone/DI.",
+                nameHeader: "Ime",
+                playsHeader: "Sviranje",
+                ampHeader: "Pojačalo",
+                diHeader: "DI",
+                micsHeader: "Mikrofoni",
+                markoPlays: "Glavni Vokal / Sint",
+                no: "Ne",
+                markoMics: "1 Vokal<br>1 Sint DI",
+                krlePlays: "Lead Gitara / Prateći Vokali",
+                guitar: "Gitara",
+                krleMics: "1 Gitarski Mikrofon<br>1 Vokal",
+                banjacPlays: "Gitara / Prateći Vokali",
+                banjacMics: "1 Gitarski Mikrofon<br>1 Vokal",
+                petarPlays: "Bas",
+                bassOrDi: "Bas ili DI",
+                petarMics: "1 Bas DI",
+                tomicaPlays: "Bubnjevi / Prateći Vokali",
+                tomicaMics: "Set Mikrofona za Bubnjeve<br>1 Vokal",
+                equipmentTitle: "2. Oprema / Backline",
+                equipmentDescription: "Ovaj odeljak detaljno opisuje specifičnu backline opremu potrebnu za nastup benda, navodeći da li je obezbeđuje bend ili prostor/festival.",
+                drumsKitTitle: "Set Bubnjeva (za Tomicu)",
+                artistProvidedHeader: "Obezbeđujemo mi:",
+                venueProvidedHeader: "Obezbeđuje prostor/festival:",
+                kickPedal: "<strong>Pedala za Bas Bubanj (1x)</strong>",
+                snareDrum: "<strong>Doboš (1x)</strong>",
+                hiHatCymbals: "<strong>Činele za Hi-Hat (1x par)</strong>",
+                crashCymbal: "<strong>Kreš Činela (1x)</strong>",
+                rideCymbal: "<strong>Rajd Činela (1x)</strong>",
+                kickDrum: "<strong>Bas Bubanj (1x):</strong> 22\" ili 20\" poželjan.",
+                drumStool: "<strong>Stolica za Bubnjeve (1x)</strong>",
+                snareStand: "<strong>Stalak za Doboš (1x)</strong>",
+                rackTom: "<strong>Rektom (1x):</strong> 12\" ili 10\" poželjan.",
+                floorTom: "<strong>Flor Tom (1x):</strong> 16\" ili 14\" poželjan.",
+                hiHatStand: "<strong>Stalak za Hi-Hat (1x)</strong>",
+                cymbalStands: "<strong>Stalci za Činele (3x):</strong> Potrebni za Desni Overhead, Levi Overhead i jedan dodatni rezervni.",
+                amplifiersTitle: "Pojačala",
+                guitarAmps: "<strong>Gitarska Pojačala (2x):</strong> Krle i Banjac nose svoja pojačala, sa dve 1x12\" zvučne kutije.",
+                bassAmp: "<strong>Bas Pojačalo (1x, za Petra):</strong> Odgovarajuće bas pojačalo i zvučna kutija ili visokokvalitetni DI Box za direktan bas signal.",
+                guitarStands: "<strong>Stalci za gitare/bas (4x)</strong>",
+                micsDiOtherTitle: "Mikrofoni & DI Boxovi & Ostalo",
+                artistVocalMics: "<strong>2x Dinamički Vokalni Mikrofoni (SM57):</strong> Marko (Glavni Vokal), Krle (Prateći Vokali)",
+                artistSynth: "<strong>Bend će obezbediti sopstveni sint (za Marka).</strong>",
+                drumMicsHeader: "Mikrofoni za Bubnjeve:",
+                kickDrumMic: "<strong>Bas Bubanj:</strong> 1x Dinamički Mikrofon (npr. Shure Beta 52A, AKG D112)",
+                snareDrumMics: "<strong>Doboš:</strong> 2x Dinamički Mikrofoni (npr. Shure SM57) za gornje i donje ozvučavanje.",
+                tomsMics: "<strong>Tomovi:</strong> 2x Dinamički Mikrofoni (npr. Sennheiser e604, Shure SM57) za Rack i Flor Tom.",
+                hiHatMic: "<strong>Hi-Hat:</strong> 1x Kondenzatorski Mikrofon sa Malom Membranom (npr. Shure SM81, Rode NT5).",
+                overheadsMics: "<strong>Overhead Mikrofoni:</strong> 2x Kondenzatorski Mikrofoni sa Velikom Membranom (npr. Rode NT1, Audio-Technica AT2020) za stereo overhead ozvučavanje (Levi i Desni).",
+                instrumentAmpMicsHeader: "Mikrofoni za Gitarska Pojačala:",
+                guitarAmpMics: "<strong>Gitarska Pojačala:</strong> 2x Dinamički Mikrofoni (npr. Shure SM57) za Krletova i Banjčeva gitarska pojačala.",
+                vocalMicsHeader: "Vokalni Mikrofoni:",
+                tomicaVoxMic: "<strong>1x Dinamički Vokalni Mikrofon (npr. Shure SM58, Sennheiser e935)</strong> za prateće vokale: Tomica - bubnjar (Prateći Vokali)",
+                banjacVoxMic: "<strong>1x Dinamički Vokalni Mikrofon (npr. Shure SM58, Sennheiser e935)</strong> za prateće vokale: Banjac",
+                diBoxesHeader: "DI Boxovi:",
+                bassDi: "<strong>1x za bas ako se ne koristi bas pojačalo</strong>",
+                synthDi: "<strong>1x za sint</strong>",
+                inputListTitle: "3. Input Lista",
+                inputListDescription: "Ova lista ističe sve neophodno za nastup, pružajući pregled potrebnih kanala i preferirane opreme.",
+                channelHeader: "Kanal",
+                instrumentSourceHeader: "Instrument/Izvor",
+                micDiTypeHeader: "Tip Mikrofona/DI (Poželjno)",
+                standTypeHeader: "Tip Stalka",
+                kickIn: "Bas Bubanj (In)",
+                snareTop: "Dobos Gornji",
+                snareBottom: "Dobos Donji",
+                rackTomInput: "Rack Tom",
+                dynamicMic: "Dinamički mikrofon",
+                drumClip: "Drum Clip",
+                floorTomInput: "Flor Tom",
+                hiHatInput: "Hi-Hat",
+                condenserMic: "Kondenzatorski mikrofon",
+                ohR: "OH D",
+                ohL: "OH L",
+                bassInput: "Bas",
+                diType: "DI",
+                na: "N/A",
+                gtrKrleInput: "Gitara Krle",
+                gtrBanjacInput: "Gitara Banjac",
+                krleVoxInput: "Krle Vokal",
+                tomicaDrumsVoxInput: "Tomica Bubnjevi Vokal",
+                banjacVoxInput: "Banjac Vokal",
+                markoMainVoxInput: "Marko Glavni Vokal",
+                synthInput: "Sint",
+                shortBoom: "Short Boom",
+                snareClip: "Snare Clip",
+                tallBoom: "Tall Boom",
+                stagePlotTitle: "4. Raspored Scene",
+                specialNeedsTitle: "5. Posebne Potrebe / Zahtevi",
+                soundcheckRequest: "Bilo bi poželjno odraditi tonsku.",
+                copyrightText: "&copy; 2025 Jimmy Fitzsimmons. Sva Prava Zadržana.",
+                thankYouText: "Hvala na saradnji!"
+            }
+        };
+
+        // Get the current language from localStorage or default to 'en'
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        // Function to set the language and update content
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang); // Save the language preference
+            document.documentElement.lang = lang; // Update HTML lang attribute
+
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update the title specifically
+            document.title = translations[lang].pageTitle;
+
+            // Update button text
+            const toggleButton = document.getElementById('languageToggle');
+            if (toggleButton) {
+                toggleButton.textContent = currentLang === 'en' ? 'Srpski / English' : 'English / Srpski';
+            }
+        }
+
+        // Event listener for the language toggle button
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('languageToggle');
+            if (toggleButton) {
+                toggleButton.addEventListener('click', () => {
+                    const newLang = currentLang === 'en' ? 'sr' : 'en';
+                    setLanguage(newLang);
+                });
+            }
+            // Set initial language on page load
+            setLanguage(currentLang);
+        });
+    </script>
 </body>
 </html>
