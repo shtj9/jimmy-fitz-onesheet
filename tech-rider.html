@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- html2pdf.js CDN for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         /* Custom styles for the Inter font and default body styling */
         body {
@@ -33,7 +35,7 @@
     </style>
 </head>
 <body class="bg-gray-100 p-4 sm:p-6 md:p-8">
-    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden">
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden" id="rider-content">
         <!-- Header Section -->
         <header class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 sm:p-8 text-white rounded-t-lg relative">
             <h1 class="text-3xl sm:text-4xl font-bold mb-2 text-center" data-translate="mainTitle">
@@ -41,8 +43,11 @@
             </h1>
         </header>
 
-        <!-- Language Toggle Button moved outside header to avoid conflict -->
-        <div class="flex justify-end p-4">
+        <!-- Language Toggle Button and Download PDF Button -->
+        <div class="flex justify-end p-4 space-x-2">
+            <button id="downloadPdf" class="bg-blue-600 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-700 transition duration-300 ease-in-out text-sm font-medium">
+                Download PDF
+            </button>
             <button id="languageToggle" class="bg-white text-blue-700 px-4 py-2 rounded-full shadow-md hover:bg-blue-100 transition duration-300 ease-in-out text-sm font-medium">
                 Srpski / English
             </button>
@@ -468,12 +473,13 @@
                 synthInput: "Synth",
                 shortBoom: "Short Boom",
                 snareClip: "Snare Clip",
+                drumClip: "Drum Clip",
                 tallBoom: "Tall Boom",
                 stagePlotTitle: "4. Stage Plot",
                 specialNeedsTitle: "5. Special Needs / Requests",
                 soundcheckRequest: "We strongly encourage a soundcheck.",
                 copyrightText: "&copy; 2025 Jimmy Fitzsimmons. All Rights Reserved.",
-                thankYouText: "Thank you for your cooperation in making our performance a success!"
+                thankYouText: "Thank you for your cooperation in making our performance a success!",
             },
             sr: {
                 pageTitle: "Tehnički Rajder Benda",
@@ -481,138 +487,135 @@
                 lineUpTitle: "1. Postava Benda",
                 lineUpDescription: "Ovaj odeljak pruža jednostavan, ali precizan pregled postave benda, instrumenata i osnovnih zahteva za mikrofone/DI.",
                 nameHeader: "Ime",
-                playsHeader: "Sviranje",
+                playsHeader: "Svirao",
                 ampHeader: "Pojačalo",
                 diHeader: "DI",
                 micsHeader: "Mikrofoni",
-                markoPlays: "Glavni Vokal / Sint",
+                markoPlays: "Glavni Vokal / Sintisajzer",
                 no: "Ne",
-                markoMics: "1 Vokal<br>1 Sint DI",
-                krlePlays: "Lead Gitara / Prateći Vokali",
+                markoMics: "1 Vokal<br>1 Sintisajzer DI",
+                krlePlays: "Glavna Gitara / Prateći Vokali",
                 guitar: "Gitara",
-                krleMics: "1 Gitarski Mikrofon<br>1 Vokal",
+                krleMics: "1 Mikrofon za Gitaru<br>1 Vokal",
                 banjacPlays: "Gitara / Prateći Vokali",
-                banjacMics: "1 Gitarski Mikrofon<br>1 Vokal",
+                banjacMics: "1 Mikrofon za Gitaru<br>1 Vokal",
                 petarPlays: "Bas",
                 bassOrDi: "Bas ili DI",
                 petarMics: "1 Bas DI",
                 tomicaPlays: "Bubnjevi / Prateći Vokali",
                 tomicaMics: "Set Mikrofona za Bubnjeve<br>1 Vokal",
                 equipmentTitle: "2. Oprema / Backline",
-                equipmentDescription: "Ovaj odeljak detaljno opisuje specifičnu backline opremu potrebnu za nastup benda, navodeći da li je obezbeđuje bend ili prostor/festival.",
-                drumsKitTitle: "Set Bubnjeva (za Tomicu)",
-                artistProvidedHeader: "Obezbeđujemo mi:",
-                venueProvidedHeader: "Obezbeđuje prostor/festival:",
+                equipmentDescription: "Ovaj odeljak detaljno opisuje specifičnu opremu i backline potrebne za nastup benda, navodeći da li ih obezbeđuje izvođač ili prostor.",
+                drumsKitTitle: "Komplet Bubnjeva (za Tomicu)",
+                artistProvidedHeader: "Obezbeđuje Izvođač:",
+                venueProvidedHeader: "Obezbeđuje Prostor:",
                 kickPedal: "<strong>Pedala za Bas Bubanj (1x)</strong>",
                 snareDrum: "<strong>Doboš (1x)</strong>",
-                hiHatCymbals: "<strong>Činele za Hi-Hat (1x par)</strong>",
-                crashCymbal: "<strong>Kreš Činela (1x)</strong>",
-                rideCymbal: "<strong>Rajd Činela (1x)</strong>",
-                kickDrum: "<strong>Bas Bubanj (1x):</strong> 22\" ili 20\" poželjan.",
+                hiHatCymbals: "<strong>Hi-Hat Činele (1x par)</strong>",
+                crashCymbal: "<strong>Crash Činela (1x)</strong>",
+                rideCymbal: "<strong>Ride Činela (1x)</strong>",
+                kickDrum: "<strong>Bas Bubanj (1x):</strong> Prečnik 22\" ili 20\" po mogućnosti.",
                 drumStool: "<strong>Stolica za Bubnjeve (1x)</strong>",
                 snareStand: "<strong>Stalak za Doboš (1x)</strong>",
-                rackTom: "<strong>Rektom (1x):</strong> 12\" ili 10\" poželjan.",
-                floorTom: "<strong>Flor Tom (1x):</strong> 16\" ili 14\" poželjan.",
+                rackTom: "<strong>Rack Tom (1x):</strong> Prečnik 12\" ili 10\" po mogućnosti.",
+                floorTom: "<strong>Floor Tom (1x):</strong> Prečnik 16\" ili 14\" po mogućnosti.",
                 hiHatStand: "<strong>Stalak za Hi-Hat (1x)</strong>",
-                cymbalStands: "<strong>Stalci za Činele (3x):</strong> Potrebni za Desni Overhead, Levi Overhead i jedan dodatni rezervni.",
+                cymbalStands: "<strong>Boom Stalak za Činele (3x):</strong> Potrebno za Overhead Desno, Overhead Levo i jedan rezervni.",
                 amplifiersTitle: "Pojačala",
-                guitarAmps: "<strong>Gitarska Pojačala (2x):</strong> Krle i Banjac nose svoja pojačala, sa dve 1x12\" zvučne kutije.",
-                bassAmp: "<strong>Bas Pojačalo (1x, za Petra):</strong> Odgovarajuće bas pojačalo i zvučna kutija ili visokokvalitetni DI Box za direktan bas signal.",
-                guitarStands: "<strong>Stalci za gitare/bas (4x)</strong>",
-                micsDiOtherTitle: "Mikrofoni & DI Boxovi & Ostalo",
+                guitarAmps: "<strong>Pojačala za Gitaru (2x):</strong> Krle i Banjac će obezbediti svoja pojačala, svako sa 1x12\" zvučnom kutijom.",
+                bassAmp: "<strong>Pojačalo za Bas (1x, za Petra):</strong> Ili odgovarajuće bas pojačalo i kabinet, ili visokokvalitetni DI Box za direktan bas signal.",
+                guitarStands: "<strong>Stalci za Gitaru (4x)</strong>",
+                micsDiOtherTitle: "Mikrofoni & DI Kutije & Ostalo",
                 artistVocalMics: "<strong>2x Dinamički Vokalni Mikrofoni (SM57):</strong> Marko (Glavni Vokal), Krle (Prateći Vokali)",
-                artistSynth: "<strong>Bend će obezbediti sopstveni sint (za Marka).</strong>",
+                artistSynth: "<strong>Bend će obezbediti sopstveni sintisajzer (za Marka).</strong>",
                 drumMicsHeader: "Mikrofoni za Bubnjeve:",
                 kickDrumMic: "<strong>Bas Bubanj:</strong> 1x Dinamički Mikrofon (npr. Shure Beta 52A, AKG D112)",
-                snareDrumMics: "<strong>Doboš:</strong> 2x Dinamički Mikrofoni (npr. Shure SM57) za gornje i donje ozvučavanje.",
-                tomsMics: "<strong>Tomovi:</strong> 2x Dinamički Mikrofoni (npr. Sennheiser e604, Shure SM57) za Rack i Flor Tom.",
-                hiHatMic: "<strong>Hi-Hat:</strong> 1x Kondenzatorski Mikrofon sa Malom Membranom (npr. Shure SM81, Rode NT5).",
-                overheadsMics: "<strong>Overhead Mikrofoni:</strong> 2x Kondenzatorski Mikrofoni sa Velikom Membranom (npr. Rode NT1, Audio-Technica AT2020) za stereo overhead ozvučavanje (Levi i Desni).",
-                instrumentAmpMicsHeader: "Mikrofoni za Gitarska Pojačala:",
-                guitarAmpMics: "<strong>Gitarska Pojačala:</strong> 2x Dinamički Mikrofoni (npr. Shure SM57) za Krletova i Banjčeva gitarska pojačala.",
+                snareDrumMics: "<strong>Doboš:</strong> 2x Dinamička Mikrofona (npr. Shure SM57) za gornje i donje ozvučenje.",
+                tomsMics: "<strong>Tomovi:</strong> 2x Dinamička Mikrofona (npr. Sennheiser e604, Shure SM57) za Rack Tom i Floor Tom.",
+                hiHatMic: "<strong>Hi-Hat:</strong> 1x Kondenzatorski Mikrofon sa Malom Dijaframom (npr. Shure SM81, Rode NT5).",
+                overheadsMics: "<strong>Overhead Mikrofoni:</strong> 2x Kondenzatorska Mikrofona sa Velikom Dijaframom (npr. Rode NT1, Audio-Technica AT2020) za stereo overhead ozvučenje (Levo i Desno).",
+                instrumentAmpMicsHeader: "Mikrofoni za Pojačala Instrumenta:",
+                guitarAmpMics: "<strong>Pojačala za Gitaru:</strong> 2x Dinamička Mikrofona (npr. Shure SM57) za pojačala Krleta i Banjca.",
                 vocalMicsHeader: "Vokalni Mikrofoni:",
                 tomicaVoxMic: "<strong>1x Dinamički Vokalni Mikrofon (npr. Shure SM58, Sennheiser e935)</strong> za prateće vokale: Tomica - bubnjar (Prateći Vokali)",
                 banjacVoxMic: "<strong>1x Dinamički Vokalni Mikrofon (npr. Shure SM58, Sennheiser e935)</strong> za prateće vokale: Banjac",
-                diBoxesHeader: "DI Boxovi:",
+                diBoxesHeader: "DI Kutije:",
                 bassDi: "<strong>1x za bas ako se ne koristi bas pojačalo</strong>",
-                synthDi: "<strong>1x za sint</strong>",
-                inputListTitle: "3. Input Lista",
-                inputListDescription: "Ova lista ističe sve neophodno za nastup, pružajući pregled potrebnih kanala i preferirane opreme.",
+                synthDi: "<strong>1x za sintisajzer</strong>",
+                inputListTitle: "3. Lista Ulaza",
+                inputListDescription: "Ova lista ističe svaku audio liniju neophodnu za nastup, pružajući inženjeru pregled potrebnih kanala i preferirane opreme.",
                 channelHeader: "Kanal",
                 instrumentSourceHeader: "Instrument/Izvor",
-                micDiTypeHeader: "Tip Mikrofona/DI (Poželjno)",
+                micDiTypeHeader: "Tip Mikrofona/DI (Preporučeno)",
                 standTypeHeader: "Tip Stalka",
-                kickIn: "Bas Bubanj (In)",
-                snareTop: "Dobos Gornji",
-                snareBottom: "Dobos Donji",
+                kickIn: "Bas Bubanj Unutra",
+                snareTop: "Doboš Gore",
+                snareBottom: "Doboš Dole",
                 rackTomInput: "Rack Tom",
                 dynamicMic: "Dinamički mikrofon",
-                drumClip: "Drum Clip",
-                floorTomInput: "Flor Tom",
-                hiHatInput: "Hi-Hat",
+                drumClip: "Držač za Bubanj",
+                floorTomInput: "Floor Tom",
+                hiHatInput: "Hi Hat",
                 condenserMic: "Kondenzatorski mikrofon",
                 ohR: "OH D",
                 ohL: "OH L",
                 bassInput: "Bas",
                 diType: "DI",
                 na: "N/A",
-                gtrKrleInput: "Gitara Krle",
-                gtrBanjacInput: "Gitara Banjac",
+                gtrKrleInput: "GTR Krle",
+                gtrBanjacInput: "GTR Banjac",
                 krleVoxInput: "Krle Vokal",
                 tomicaDrumsVoxInput: "Tomica Bubnjevi Vokal",
                 banjacVoxInput: "Banjac Vokal",
                 markoMainVoxInput: "Marko Glavni Vokal",
-                synthInput: "Sint",
-                shortBoom: "Short Boom",
-                snareClip: "Snare Clip",
-                tallBoom: "Tall Boom",
-                stagePlotTitle: "4. Raspored Scene",
+                synthInput: "Sintisajzer",
+                shortBoom: "Kratki Boom",
+                snareClip: "Držač za Doboš",
+                drumClip: "Držač za Bubanj",
+                tallBoom: "Visoki Boom",
+                stagePlotTitle: "4. Scenski Plan",
                 specialNeedsTitle: "5. Posebne Potrebe / Zahtevi",
-                soundcheckRequest: "Bilo bi poželjno odraditi tonsku.",
+                soundcheckRequest: "Izričito preporučujemo tonsku probu.",
                 copyrightText: "&copy; 2025 Jimmy Fitzsimmons. Sva Prava Zadržana.",
-                thankYouText: "Hvala na saradnji!"
+                thankYouText: "Hvala na saradnji u ostvarivanju uspešnog nastupa!",
             }
         };
 
-        // Get the current language from localStorage or default to 'en'
-        let currentLang = localStorage.getItem('lang') || 'en';
+        let currentLang = 'en'; // Default language
 
-        // Function to set the language and update content
-        function setLanguage(lang) {
-            currentLang = lang;
-            localStorage.setItem('lang', lang); // Save the language preference
-            document.documentElement.lang = lang; // Update HTML lang attribute
-
-            // Update all elements with data-translate attribute
+        // Function to apply translations
+        function applyTranslations() {
             document.querySelectorAll('[data-translate]').forEach(element => {
                 const key = element.getAttribute('data-translate');
-                if (translations[lang] && translations[lang][key]) {
-                    element.innerHTML = translations[lang][key];
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.innerHTML = translations[currentLang][key];
                 }
             });
-
-            // Update the title specifically
-            document.title = translations[lang].pageTitle;
-
-            // Update button text
-            const toggleButton = document.getElementById('languageToggle');
-            if (toggleButton) {
-                toggleButton.textContent = currentLang === 'en' ? 'Srpski / English' : 'English / Srpski';
-            }
         }
 
-        // Event listener for the language toggle button
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleButton = document.getElementById('languageToggle');
-            if (toggleButton) {
-                toggleButton.addEventListener('click', () => {
-                    const newLang = currentLang === 'en' ? 'sr' : 'en';
-                    setLanguage(newLang);
-                });
-            }
-            // Set initial language on page load
-            setLanguage(currentLang);
+        // Language toggle functionality
+        document.getElementById('languageToggle').addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'sr' : 'en';
+            applyTranslations();
         });
+
+        // PDF download functionality
+        document.getElementById('downloadPdf').addEventListener('click', () => {
+            const element = document.getElementById('rider-content');
+            const opt = {
+                margin:       0.5,
+                filename:     'Jimmy_Fitzsimmons_Technical_Rider.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, logging: true, dpi: 192, letterRendering: true },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            // Use html2pdf to generate and download the PDF
+            html2pdf().set(opt).from(element).save();
+        });
+
+        // Apply translations on initial load
+        document.addEventListener('DOMContentLoaded', applyTranslations);
     </script>
 </body>
 </html>
