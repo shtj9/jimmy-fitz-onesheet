@@ -8,8 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- html2pdf.js CDN for PDF generation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Custom styles for the Inter font and default body styling */
         body {
@@ -32,6 +32,36 @@
         tbody tr:nth-child(even) {
             @apply bg-gray-50;
         }
+        /* Custom dropdown styling */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: 0; /* Align dropdown to the right of the button */
+            border-radius: 0.5rem; /* Rounded corners for dropdown */
+            overflow: hidden; /* Ensures rounded corners are applied to children */
+            margin-top: 0.5rem; /* Space between button and dropdown */
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            @apply text-blue-700 hover:bg-blue-100 transition duration-300 ease-in-out text-sm font-medium;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-4 sm:p-6 md:p-8">
@@ -45,9 +75,15 @@
 
         <!-- Language Toggle Button and Download PDF Button -->
         <div class="flex justify-end p-4 space-x-2">
-            <button id="downloadPdf" class="bg-blue-600 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-700 transition duration-300 ease-in-out text-sm font-medium">
-                Download PDF
-            </button>
+            <div class="dropdown">
+                <button id="downloadPdfButton" class="bg-blue-600 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-700 transition duration-300 ease-in-out text-sm font-medium">
+                    Download PDF <i class="fas fa-caret-down ml-1"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="https://drive.google.com/file/d/11TEsyuknC2cNun6xkXEphABy-GLkWDWX/view?usp=sharing" target="_blank" data-translate="downloadEnglishPdf">Download English PDF</a>
+                    <a href="https://drive.google.com/file/d/197kHYA5qeNAuHXeUZWe0GFSDIn3R7diB/view?usp=sharing" target="_blank" data-translate="downloadSerbianPdf">Download Serbian PDF</a>
+                </div>
+            </div>
             <button id="languageToggle" class="bg-white text-blue-700 px-4 py-2 rounded-full shadow-md hover:bg-blue-100 transition duration-300 ease-in-out text-sm font-medium">
                 Srpski / English
             </button>
@@ -480,6 +516,8 @@
                 soundcheckRequest: "We strongly encourage a soundcheck.",
                 copyrightText: "&copy; 2025 Jimmy Fitzsimmons. All Rights Reserved.",
                 thankYouText: "Thank you for your cooperation in making our performance a success!",
+                downloadEnglishPdf: "Download English PDF",
+                downloadSerbianPdf: "Download Serbian PDF"
             },
             sr: {
                 pageTitle: "Tehnički Rajder Benda",
@@ -518,7 +556,7 @@
                 drumStool: "<strong>Stolica za Bubnjeve (1x)</strong>",
                 snareStand: "<strong>Stalak za Doboš (1x)</strong>",
                 rackTom: "<strong>Rack Tom (1x):</strong> Prečnik 12\" ili 10\" po mogućnosti.",
-                floorTom: "<strong>Floor Tom (1x):</strong> Prečnik 16\" ili 14\" po mogućnosti.",
+                floorTom: "<strong>Floor Tom (1x):</strong> 16\" or 14\" diameter preferred.",
                 hiHatStand: "<strong>Stalak za Hi-Hat (1x)</strong>",
                 cymbalStands: "<strong>Boom Stalak za Činele (3x):</strong> Potrebno za Overhead Desno, Overhead Levo i jedan rezervni.",
                 amplifiersTitle: "Pojačala",
@@ -578,6 +616,8 @@
                 soundcheckRequest: "Izričito preporučujemo tonsku probu.",
                 copyrightText: "&copy; 2025 Jimmy Fitzsimmons. Sva Prava Zadržana.",
                 thankYouText: "Hvala na saradnji u ostvarivanju uspešnog nastupa!",
+                downloadEnglishPdf: "Preuzmi Engleski PDF",
+                downloadSerbianPdf: "Preuzmi Srpski PDF"
             }
         };
 
@@ -597,21 +637,6 @@
         document.getElementById('languageToggle').addEventListener('click', () => {
             currentLang = currentLang === 'en' ? 'sr' : 'en';
             applyTranslations();
-        });
-
-        // PDF download functionality
-        document.getElementById('downloadPdf').addEventListener('click', () => {
-            const element = document.getElementById('rider-content');
-            const opt = {
-                margin:       0.5,
-                filename:     'Jimmy_Fitzsimmons_Technical_Rider.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, logging: true, dpi: 192, letterRendering: true },
-                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-
-            // Use html2pdf to generate and download the PDF
-            html2pdf().set(opt).from(element).save();
         });
 
         // Apply translations on initial load
